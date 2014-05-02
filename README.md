@@ -83,3 +83,7 @@ the following commands:
 
 Source code should be kept in `src/main/scala` although SBT will
 actually compile `.scala` files found anywhere in the project.
+
+### Lectures
+
+* [doc/class1.md](doc1/class.md)
