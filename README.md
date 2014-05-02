@@ -86,4 +86,4 @@ actually compile `.scala` files found anywhere in the project.
 
 ### Lectures
 
-* [doc/class1.md](doc1/class.md)
+* [doc/class1.md](doc/class1.md)
