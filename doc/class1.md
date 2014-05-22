@@ -226,3 +226,77 @@ convert(4.0, newtonToCelsius, celsiusToKelvin)
 
 As you can see, we can define new conversions to/from Celsius later,
 and still use them with our existing code.
+
+# Collections
+The default collections available in scala are immutable.  While copying
+an entire data structure to add an element seems expensive, Scala's
+collections are persistent and use structural sharing to make these
+operations fast.
+
+## List
+Let's checkout a few techniques for building a `List` of wages.
+
+```scala
+scala> val wages = List(7.25, 11.0, 13.0)
+wages: List[Double] = List(7.25, 11.0, 13.0)
+
+scala> val wages = 7.25 :: 11.0 :: List(13.0)
+wages: List[Double] = List(7.25, 11.0, 13.0)
+```
+
+
+### Methods
+Next let's take a look at some common methods that
+we can find in several collection types.
+
+* **exists** - Tells us if a certain element exists in the
+collection, but unlike contains fakes a qualifying predicate function.
+
+Let's take the following method that tells us if a wage is less than
+minimum wage and apply it to our `List`.
+
+
+```scala
+def lessThanMinimum(wage: Double) = wage < 9.0
+
+scala> wages.exists(lessThanMinimum)
+res0: Boolean = true
+```
+
+* **forall** - Similar to exists but returns if all elements meet our
+predicate condition.
+
+Using our existing minimum wage function, let's find out if all the wages
+in our list match this condition.
+
+```scala
+scala> wages.forall(lessThanMinimum)
+res2: Boolean = false
+```
+
+* filter
+* partition
+* map
+* flatten
+* flatMap
+
+## Map
+### Build it
+### Pull things
+* Map of cities with temperatures
+* What is an option?
+
+## Option
+* map
+* Map Option map or Map map Option
+* Living without NPEs
+* apply/Some
+
+## for comprehensions
+* Simple comprehension with List
+  * Previous examples with list.
+* Complex map/flatMap example cleanup
+
+## Case classes
+* Write a trait for Temperature
+* Pattern matching of class types
