@@ -226,3 +226,51 @@ convert(4.0, newtonToCelsius, celsiusToKelvin)
 
 As you can see, we can define new conversions to/from Celsius later,
 and still use them with our existing code.
+
+### The (type) safety dance
+
+So things are going well, we have a lot of flexibility and the ability
+to define new units of measurement. So we're done right?
+
+Not so fast. There is one problem with our API: it would be easy to
+forget which type of units we're using, since all the quanitites are of
+type `Double`. This is not an abstract problem. NASA lost a $125M
+orbiter due to a mix-up between English units and metric units
+(pound-seconds versus newton-seconds).
+
+We can fix this by introducing our own types. Instead of using `Double`
+we can create types that store the unit information as well as the
+amount.
+
+The simplest way to do this is using a `case class`. This allows us to
+wrap one or more values together into a new value. For example, here's
+a simple way to define a geographical point:
+
+```scala
+case class GeoPoint(latitude: Double, longitude: Double)
+```
+
+We can use this class to define point points of interest:
+
+```scala
+val NewYorkCity = GeoPoint(40.7127, -74.0059)
+val LosAngeles = GeoPoint(34.0500, 118.2500)
+val RolandIowa = GeoPoint(42.1656, 93.5000)
+```
+
+Using `.latitude` and `.longitude` we can access the individual fields
+of the class:
+
+```scala
+val x = NewYorkCity.latitude
+val y = NewYorkCity.longitude
+```
+
+We can also access all of the fields using a different syntax (a
+`destructuring pattern match`):
+
+```scala
+val GeoPoint(x, y) = NewYorkCity
+
+// x and y are now available to be used
+```
