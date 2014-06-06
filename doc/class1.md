@@ -293,9 +293,11 @@ wages: List[Double] = List(7.25, 11.0, 13.0)
 ```
 
 
-### Methods
-Next let's take a look at some common methods that
-we can find in several collection types.
+### Collection Members
+Next we'll cover a few functions we'll find in several types of collections.  These methods will allow us to manipulate or determine properties of our collections.
+
+
+Let's start with discovering a few properties of our new `List`.
 
 * **exists** - Tells us if a certain element exists in the
 collection, but unlike contains fakes a qualifying predicate function.
@@ -322,9 +324,47 @@ scala> wages.forall(lessThanMinimum)
 res2: Boolean = false
 ```
 
-* filter
-* partition
-* map
+
+Now that we know our List contains some minimum wages, let's pull those out using the same  function (`lessThanMinimum`) as before.
+
+
+* **filter** - Filter to return all the elements that match the provided predicate.
+
+```scala
+scala> wages.filter(lessThanMinimum)
+res2: List[Double] = List(7.25)
+```
+
+
+Now that we have a list with our minimum wages what about the other values?  We'll probably want to use them independently as well.  Our next transformative function will help with that.
+* **partition** - Splits our collection into two based on the the predicate.
+```scala
+scala> wages.partition(lessThanMinimum)
+res2: (List[Double], List[Double]) = (List(7.25),List(11.0, 13.0))
+```
+
+Bam! The seas have been parted and partition has now provided us with two brand new lists.  One that satisfies the `lessThanMinimum` predicate and the rest.
+
+
+
+![alt tag](http://www.gaypatriot.net/wp-content/uploads/2014/02/professor-farnsworth.jpg)
+
+We're getting payraises of a whopping 20% across the board.  Let's do some transformations on our `List` to see what this will look like.
+
+We'll start by defining our function that will increase our wages by 20%.
+```scala
+def raisePay(wage: Double) = wage * 1.20
+```
+
+Now we can use this function to transform the values in our wages list with `map`.
+
+* **map** - Builds a new collection by applying the provided function to all the elements in this one.
+
+```scala
+scala> wages.map(payRaise)
+res2:  List[Double] = List(8.7, 13.2, 15.6)
+```
+
 * flatten
 * flatMap
 
