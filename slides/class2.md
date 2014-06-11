@@ -364,7 +364,7 @@ opt.map(s => s.reverse)
 What about this?
 
 ```scala
-def calculate(x: Double): Double =
+def calculate(x: Double): Option[Double] =
   if (x == 0.0) None else Some(1.0 / x)
   
 def handle(o: Option[Double]): Option[Double] =
