@@ -66,7 +66,8 @@ intuitive division, you'll want to add decimal points to your numbers.
 It's often useful to give values names, either to "save" a calculation
 or to help describe what it is. In Scala we can bind a value to a name
 using `val`. Here is an example that calculates what someone who works
-35 hours per week at the Federal minimum wage makes per year:
+35 hours per week at the Federal minimum wage makes per year (a
+depressingly low number):
 
 ```scala
 val minimumWage = 7.25
@@ -96,6 +97,7 @@ def wages(hourlyWage: Double, hoursPerWeek: Int): Double =
 wages(7.25, 35)
 wages(11.0, 35)
 wages(13.0, 35)
+wages(17.0, 35)
 ```
 
 When we define a function in Scala using `def` we call it a *method*.
@@ -109,9 +111,10 @@ whole numbers to be used. The `wages` function specifies a type for
 each of its parameters (`hourlyWage` and `hoursPerWeek`) and also
 specifies function's *return type* (the kind of values it calculates).
 
-Functions can take as many parameters as we want. Here's another method
-that calculates the Pythagorean theorem. This function calculates the
-hypotenuse of a right triangle given the two other sides (`x` and `y`):
+Functions can take as many parameters as we want. Here's another
+method that calculates the Pythagorean theorem. This function
+calculates the hypotenuse of a right triangle (`z`) given the two
+other sides (`x` and `y`):
 
 ```scala
 def pythagoras(x: Double, y: Double): Double =
@@ -127,10 +130,11 @@ calculate the square-root. Scala provides many such built-in methods.
 
 ### Simplify, simplify
 
-There are several different units to measure temperature (although some
-are used more widely than others). Kelvin (K) is a scientific unit that
-starts at 0K ("absolute zero") and goes up from there. Celsius (C) is
-defined on the same scale, where 0C = 273.15K.
+There are several different units to measure temperature (although
+some are used more widely than others). Kelvin (K) is a scientific
+unit that starts at 0K ("absolute zero") and goes up from
+there. Celsius (C) is defined on the same scale, where 0C = 273.15K. A
+mathematical equation might look like this:
 
 ```
 Celsius = Kelvin - 273.15
@@ -149,7 +153,7 @@ celsiusToKelvin(100.0) // boiling point of water
 
 Fahrenheit (F) is a bit trickier, since it involves not just an offset
 from Kelvin/Celsius (addition) but also a change in scale
-(multiplication):
+(multiplication). Again, the equation migth be:
 
 ```
 Fahrenheit = (Celsius x 1.8) + 32
@@ -175,7 +179,7 @@ def fahrenheitToKelvin(f: Double): Double = celsiusToKelvin(fahrenheitToCelsius(
 
 ### Simplify, simplify
 
-There are many other units for measuring temperature:
+There are many other possible units for measuring temperature:
 
 ```
 Rankine = (Celsius + 273.15) x 1.8
@@ -198,13 +202,17 @@ we can define methods like the following:
 def freezing(fromCelsius: Double => Double): Double = fromCelsius(0.0)
 def boiling(fromCelsius: Double => Double): Double = fromCelsius(100.0)
 
+// identity is a function that just returns the value it is given
+val celsiusFreezing = freezing(identity)
+val celsiusBoiling = boiling(identity)
+
 def celsiusToNewton(c: Double) = c * 0.33
-val newtonFreezing = freezing(newtonFromCelsius)
-val newtonBoiling = boiling(newtonFromCelsius)
+val newtonFreezing = freezing(celsiusToNewton)
+val newtonBoiling = boiling(celsiusToNewton)
 
 def celsiusToRomer(c: Double) = (c * 0.525) + 7.5
-val romerFreezing = freezing(romerFromCelsius)
-val romerBoiling = boiling(romerFromCelsius)
+val romerFreezing = freezing(celsiuToRomer)
+val romerBoiling = boiling(celsiusToRomer)
 ```
 
 If we also define functions from Celsius to our units, we can write a
