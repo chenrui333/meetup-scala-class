@@ -232,7 +232,7 @@ We can write the method in a different way if we want
 ```scala
 def repeatConcat2(s: String, n: Int): String = {
 
-  def loop(sofar: String, i: Int): String =
+  @tailrec def loop(sofar: String, i: Int): String =
     if (i < n) loop(s + sofar, i + 1) else sofar
 
   loop("", 0)
