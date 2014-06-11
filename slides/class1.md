@@ -204,8 +204,8 @@ We can already do a lot with this!
 
 ```scala
 // concatenate s to itself n times
-def repeatConcat(s: String, n: Int) =
-  if (n <= 0) "" else s + repeatConcat(n - 1)
+def repeatConcat(s: String, n: Int): String =
+  if (n <= 0) "" else s + repeatConcat(s, n - 1)
   
 // calculate interest on p compounded n times per year
 def interest(p: Double, rate: Double, years: Double, n: Double) =
