@@ -6,10 +6,16 @@
 
 ---
 
-Open a terminal and checkout the repo:
+Visit the repo on github:
 
 ```
-$ git clone https://github.com/meetup/meetup-scala-class.git
+https://github.com/meetup/meetup-scala-class
+```
+
+Open a terminal and clone the repository:
+
+```
+$ git clone git@github.com:meetup/meetup-scala-class.git
 $ cd meetup-scala-class
 ```
 
