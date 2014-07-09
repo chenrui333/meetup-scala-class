@@ -215,7 +215,7 @@ def repeatConcat(s: String, n: Int): String =
   
 // calculate interest on p compounded n times per year
 def interest(p: Double, rate: Double, years: Double, n: Double) =
-  p * math.pow(1 + (rate / n), num * years)
+  p * math.pow(1 + (rate / n), n * years)
 ```
 ---
 
@@ -292,7 +292,7 @@ We can group several values together to create a tuple:
 val nyc = (40.7127, -74.0059)
 // nyc: (Double, Double) = (40.7127,-74.0059)
 
-val poem = ("The Raven", Poe", 1845)
+val poem = ("The Raven", "Poe", 1845)
 // poem: (String, String, Int) = (The Raven,Poe,1845)
 
 poem._3
