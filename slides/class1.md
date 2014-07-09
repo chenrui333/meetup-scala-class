@@ -292,7 +292,7 @@ We can group several values together to create a tuple:
 val nyc = (40.7127, -74.0059)
 // nyc: (Double, Double) = (40.7127,-74.0059)
 
-val poem = ("The Raven", Poe", 1845)
+val poem = ("The Raven", "Poe", 1845)
 // poem: (String, String, Int) = (The Raven,Poe,1845)
 
 poem._3
