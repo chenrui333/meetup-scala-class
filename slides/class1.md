@@ -501,8 +501,8 @@ sumList(13 :: 45 :: 8 :: Nil)
 
 REPL tips:
 
-* Add your solutions to `foo.scala`
-* `:load foo.scala` will (re)load your code
+* Add your solutions to `exercises/foo.scala`
+* `:load exercises/foo.scala` will (re)load your code
 * Test your solutions in the REPL
 * You can also add test cases to your file
 
