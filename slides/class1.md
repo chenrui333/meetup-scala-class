@@ -215,7 +215,7 @@ def repeatConcat(s: String, n: Int): String =
   
 // calculate interest on p compounded n times per year
 def interest(p: Double, rate: Double, years: Double, n: Double) =
-  p * math.pow(1 + (rate / n), num * years)
+  p * math.pow(1 + (rate / n), n * years)
 ```
 ---
 
