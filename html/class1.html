@@ -1,3 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
 # meetup scala class
 
 ## part 1
@@ -215,7 +236,7 @@ def repeatConcat(s: String, n: Int): String =
   
 // calculate interest on p compounded n times per year
 def interest(p: Double, rate: Double, years: Double, n: Double) =
-  p * math.pow(1 + (rate / n), n * years)
+  p * math.pow(1 + (rate / n), num * years)
 ```
 ---
 
@@ -292,7 +313,7 @@ We can group several values together to create a tuple:
 val nyc = (40.7127, -74.0059)
 // nyc: (Double, Double) = (40.7127,-74.0059)
 
-val poem = ("The Raven", "Poe", 1845)
+val poem = ("The Raven", Poe", 1845)
 // poem: (String, String, Int) = (The Raven,Poe,1845)
 
 poem._3
@@ -501,8 +522,8 @@ sumList(13 :: 45 :: 8 :: Nil)
 
 REPL tips:
 
-* Add your solutions to `exercises/class1.scala`
-* `:load exercises/class1.scala` will (re)load your code
+* Add your solutions to `foo.scala`
+* `:load foo.scala` will (re)load your code
 * Test your solutions in the REPL
 * You can also add test cases to your file
 
@@ -675,3 +696,12 @@ You can:
 * Ask someone to look over your work
 * Compare notes with someone else
 * Pair with someone who is still working
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
