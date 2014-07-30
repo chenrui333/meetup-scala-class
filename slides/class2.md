@@ -98,7 +98,7 @@ methods like `.length` and `.isEmpty`:
 
 ```scala
 Nil.isEmpty            // res0: Boolean = true
-(1 :: Nil).isEmpty     // res1: Boolean = true
+(1 :: Nil).isEmpty     // res1: Boolean = false
 
 Nil.length             // res2: Int = 0
 (1 :: 2 :: Nil).length // res3: Int = 2
