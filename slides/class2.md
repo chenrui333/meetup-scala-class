@@ -366,7 +366,7 @@ What about this?
 ```scala
 def calculate(x: Double): Option[Double] =
   if (x == 0.0) None else Some(1.0 / x)
-  
+
 def handle(o: Option[Double]): Option[Double] =
   o.map { n => calculate(n.toDouble) }
 // found   : Option[Double]
@@ -378,9 +378,9 @@ def handle(o: Option[Double]): Option[Double] =
 Ugh, OK
 
 ```scala
-def calculate(x: Double): Double =
+def calculate(x: Double): Option[Double] =
   if (x == 0.0) None else Some(1.0 / x)
-  
+
 def handle(o: Option[Double]): Option[Double] =
   o match {
     case Some(x) => calculate(x)
@@ -397,7 +397,7 @@ But again... *there is a better way!*
 ```scala
 def calculate(x: Double): Option[Double] =
   if (x == 0.0) None else Some(1.0 / x)
-  
+
 def handle(o: Option[Double]): Option[Double] =
   o.flatMap(x => calculate(x))
 
@@ -423,7 +423,7 @@ def handleThrice(o: Option[Double]): Option[Double] =
     x2 <- calculate(x1)
     x3 <- calculate(x2)
   } yield x3
-  
+
 // is the same as:
 
 def handleThrice(o: Option[Double]): Option[Double] =
