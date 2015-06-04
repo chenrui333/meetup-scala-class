@@ -1,4 +1,4 @@
 name := "meetup-scala-class"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.10.2"
 
