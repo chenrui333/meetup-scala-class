@@ -94,6 +94,7 @@ Values:
 * Values can either be:
  + simple (numbers, text, true/false, etc.)
  + complex (pairs, lists, dictionaries, etc.)
+ + function (to be discussed in class 2)
 
 ---
 
@@ -447,6 +448,47 @@ def ordinal(n: Int): String = {
   }
   n.toString + suffix(n)
 }
+```
+
+---
+
+But what doesn't work:
+
+```scala
+val x = "x"
+val y = "y"
+
+def shoutIfXY(s: String): String = s match {
+  case x => "yes, it is x!"
+  case y => "wow, it is y!"
+  case _ => "..."
+}
+
+shoutIfXY("x") // "yes, it is x!"
+shoutIfXY("y") // "yes, it is x!"
+
+```
+
+---
+
+Backtick to the rescue:
+
+```scala
+val x = "x"
+val y = "y"
+
+def shoutIfXY(s: String): String = s match {
+  case `x` => "yes, it is x!"
+  case `y` => "wow, it is y!"
+  case _ => "..."
+}
+
+shoutIfXY("x") // "yes, it is x!"
+shoutIfXY("y") // "wow, it is y!"
+
+// but `case s if s == x => "sth"` is better if possible
+// don't try to match on variable
+
 ```
 
 ---
