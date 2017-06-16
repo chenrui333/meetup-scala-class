@@ -11,10 +11,10 @@ Two two-hour sessions, usually 10-12 and 2-4.
 ```
 $ git clone git@github.com:meetup/meetup-scala-class.git
 $ cd meetup-scala-class
-$ open pdf/class1.pdf
+$ open html/class1.html
 ```
 
-The pdfs are generated from markdown sources. Corrections and
+The slides are generated from markdown sources. Corrections and
 additions are welcome; open a pull request.
 
 * [slides/class1.md](slides/class1.md)
