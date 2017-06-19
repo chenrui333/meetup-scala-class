@@ -325,7 +325,7 @@ case class Point(lat: Double, lon: Double)
 case class Poem(title: String, author: String, year: Int)
 
 val nyc = Point(40.7127, -74.0059)
-val poem = Poem("The Raven", Poe", 1845)
+val poem = Poem("The Raven", "Poe", 1845)
 ```
 
 ---
