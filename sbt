@@ -5,6 +5,5 @@ java \
     -Xmx2G \
     -Xss1M \
     -XX:+CMSClassUnloadingEnabled \
-    -XX:MaxPermSize=1G \
     -jar "lib/sbt-launch-0.13.2.jar" \
     "$@"
