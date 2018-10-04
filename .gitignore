@@ -10,3 +10,6 @@ TAGS
 .history
 .*.swp
 foo.scala
+
+# ignore jd-gui cfg
+jd-gui.cfg

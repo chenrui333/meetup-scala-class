@@ -1,0 +1,16 @@
+#!/bin/bash
+
+JAVA=`which java`
+JAR=lib/jd-gui-1.0.0-RC3.jar
+
+if [ ! -e $JAVA ]; then
+    echo "No java!?"
+    exit 1
+fi
+
+if [ ! -f $JAR ]; then
+    echo "$JAR not found!"
+    exit 1
+fi 
+
+$JAVA -jar $JAR 2>&1>/dev/null &
